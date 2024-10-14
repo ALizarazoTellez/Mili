@@ -3,6 +3,7 @@ package term
 import (
 	"fmt"
 	"os"
+	"strconv"
 
 	"golang.org/x/term"
 )
@@ -38,6 +39,22 @@ func MakeRaw() error {
 
 func CursorToHome() {
 	fmt.Print(CSI, "H")
+}
+
+func CursorUp(n int) {
+	fmt.Print(CSI, strconv.Itoa(n), "A")
+}
+
+func CursorDown(n int) {
+	fmt.Print(CSI, strconv.Itoa(n), "B")
+}
+
+func CursorRight(n int) {
+	fmt.Print(CSI, strconv.Itoa(n), "C")
+}
+
+func CursorLeft(n int) {
+	fmt.Print(CSI, strconv.Itoa(n), "D")
 }
 
 func HideCursor() {
